@@ -1,0 +1,65 @@
+<h2>Cart Details</h2>
+<div class="row" *ngIf="cart !=undefined && cart.items.length>0">
+    <div class="col-sm-8">
+        <div class="card">
+            <div class="card-header">
+                <h4>Cart Items</h4>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Total</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of cart.items">
+                            <td>{{item.name}}</td>
+                            <td>{{item.quantity}}</td>
+                            <td>{{item.unitPrice}}</td>
+                            <td>{{item.quantity * item.unitPrice}}</td>
+                            <td>
+                                <button class="btn btn-danger" (click)="removeItem(item.itemId)">Remove</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="card">
+            <div class="card-header">
+                <h4>Cart Summary</h4>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <tr>
+                        <td>Sub Total</td>
+                        <td>{{cart.total | currency:'INR'}}</td>
+                    </tr>
+                    <tr>
+                        <td>Tax ({{cart.taxRate}}%)</td>
+                        <td>{{cart.tax | currency:'INR'}}</td>
+                    </tr>
+                    <tr>
+                        <td>Grand Total</td>
+                        <td>{{cart.grandTotal | currency:'INR'}}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="card-footer">
+                <button *ngIf="user!=undefined" class="btn btn-primary" (click)="checkOut()">Checkout</button>
+                <a *ngIf="user==undefined" [routerLink]="['/login']" [queryParams]="{returnUrl:'/cart'}" class="btn btn-primary">Checkout</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="cart.items.length==0" style="min-height: 300px;">
+    <h3>No items in the cart</h3>
+</div>

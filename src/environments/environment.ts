@@ -3,7 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiAddress: 'https://edtechsparkapi.azurewebsites.net/api',
+  taxRate: 18,
+  encKey: 'Secret@1234',
+  razorpayKey: 'rzp_test_iS4ZXWqjE5NVAq',
 };
 
 /*

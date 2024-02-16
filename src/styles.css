@@ -1,1 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
+footer{
+    margin-top: 50px;
+    background: rgb(27 32 56);
+    padding: 20px;
+    color: rgb(230, 224, 224);
+}
+.cartCounter{
+    background-color: #ec5252;
+    border-radius: 4px;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.43;
+    margin: -6px 0 0 5px;
+    padding: 0px 7px;
+    position: absolute;
+    white-space: nowrap;
+    z-index: 1;
+}

@@ -1,0 +1,35 @@
+<div style="background: rgb(183, 225, 251);">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 pt-5 pb-4">
+                <h1>Learn. Practice. Apply.</h1>
+                <p class="pb-4">Learn the latest skills like business analytics, graphic design, Python, and more</p>
+                <p>
+                    <a class="btn btn-primary btn-lg" href="#" role="button">Start Learning</a>
+                </p>
+            </div>
+            <div class="col-md-4 pt-1">
+                <img src="https://dotnettrickscloud.blob.core.windows.net/images/learn-to-code.svg"
+                    alt="Learn. Practice. Apply." style="height: 250px;">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <h1 class="mt-4 mb-4">Our Courses</h1>
+    <div class="row">
+        <div class="col-sm-4 mb-4" *ngFor="let item of courses">
+            <div class="card">
+                <img class="card-img-top" [src]="item.imageUrl" [alt]="item.name" />
+                <div class="card-body">
+                    <h4 class="card-title">{{item.name}}</h4>
+                    <p class="card-text">{{item.summary}}</p>
+                    <p>
+                        <span>Level: Beginner</span>
+                        <button class="btn btn-outline-primary float-end" (click)="AddToCart(item.id,item.name,item.imageUrl,item.unitPrice,1)">Add To Cart</button>
+                    </p>
+                </div>
+            </div>            
+        </div>
+    </div>
+</div>

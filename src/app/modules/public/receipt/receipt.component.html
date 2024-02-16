@@ -1,0 +1,23 @@
+<h2>Payment Details</h2>
+<div *ngIf="receipt!=undefined">
+    <ul class="mt-3 list-group list-group-flush">
+        <li class="list-group-item d-flex justify-content-between">
+            PaymentId : <span>{{receipt.paymentId}}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between">
+            Email : <span>{{receipt.email}}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between">
+            Total : <span>{{receipt.grandTotal | currency:'INR'}}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between">
+            Status : <span>{{receipt.status}}</span>
+        </li>
+    </ul>
+</div>
+<div *ngIf="receipt==undefined">
+    <h3>No Payment Details Found</h3>
+</div>
+<div class="mt-4">
+    <a [routerLink]="['/user']" class="btn btn-primary">Go To Dashboard</a>
+</div>
